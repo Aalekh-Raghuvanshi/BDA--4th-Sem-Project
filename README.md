@@ -10,8 +10,6 @@ The current version focuses on:
 - branch-level summaries
 - branch-wise risk comparison charts
 
-Clustering has been removed from the project.
-
 ## Features
 
 - Subject dropdown for `BDA`, `DL`, `DSP`, and `DBMS`
