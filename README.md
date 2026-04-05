@@ -194,7 +194,7 @@ Main UI behavior:
 ```env
 PROCESSED_CSV=data/predictions.csv
 PORT=5000
-HDFS_NAMENODE='http://localhost:9870/explorer.html#'
+HDFS_NAMENODE='http://localhost:9000'
 SPARK_MASTER='local[*]'
 ```
 
