@@ -157,14 +157,6 @@ Main UI behavior:
 
 ## Environment Configuration
 
-### Frontend
-
-`frontend/.env`
-
-```env
-VITE_API_URL=http://localhost:5000
-```
-
 ### Backend
 
 `backend/.env`
@@ -200,15 +192,6 @@ npm run dev
 ```
 
 The Vite app will run on its local dev port and call the Flask API using `VITE_API_URL`.
-
-## Build
-
-To create a production frontend build:
-
-```bash
-cd frontend
-npm run build
-```
 
 ## Data Files
 
