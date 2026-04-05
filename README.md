@@ -58,7 +58,6 @@ Instead of relying on local file storage, the project uses HDFS to simulate a di
 
 Each subject is normalized to `100` marks using this formula:
 
-```text
 total_subject_marks =
   quiz1_marks
   + quiz2_marks
