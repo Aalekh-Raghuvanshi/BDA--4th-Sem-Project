@@ -24,6 +24,38 @@ Clustering has been removed from the project.
 - Risk-type filters for `Marks < 33%` and `Attendance < 75%`
 - Subject-aware analytics charts built with Chart.js
 
+## File Storage (HDFS)
+
+All datasets in this project are stored in the Hadoop Distributed File System (HDFS), which is configured and run locally on the system.
+
+Instead of relying on local file storage, the project uses HDFS to simulate a distributed data environment, enabling scalable data processing using Apache Spark.
+
+### HDFS Directory Structure
+
+```text
+/students_data/
+├── students/
+│   ├── cse_students.csv
+│   ├── dsai_students.csv
+│   └── ece_students.csv
+│
+├── attendance/
+│   ├── cse_attendance.csv
+│   ├── dsai_attendance.csv
+│   └── ece_attendance.csv
+│
+├── marks/
+│   ├── cse_BDA_marks.csv
+│   ├── cse_DL_marks.csv
+│   ├── cse_DSP_marks.csv
+│   ├── cse_DBMS_marks.csv
+│   ├── dsai_BDA_marks.csv
+│   ├── ...
+│   └── ece_DBMS_marks.csv
+│
+└── processed_data/
+    └── final_dataset.csv
+
 ## Marks Normalization
 
 Each subject is normalized to `100` marks using this formula:
@@ -193,31 +225,13 @@ npm run dev
 
 The Vite app will run on its local dev port and call the Flask API using `VITE_API_URL`.
 
-## Data Files
+## Team
 
-Raw CSV files are organized by branch and subject:
+- Aalekh Raghuvanshi
+- Bhavya Khare
+- Devam Sharma
+- Hemant Kumar
+- Saksham Kushwah
 
-- students: `backend/raw_data/<branch>_students.csv`
-- attendance: `backend/raw_data/<branch>_attendance.csv`
-- marks: `backend/raw_data/<branch>_<subject>_marks.csv`
 
-Example:
 
-```text
-backend/raw_data/cse_BDA_marks.csv
-```
-
-## Notes
-
-- The Flask API reads predictions from `backend/flask/data/predictions.csv` unless `PROCESSED_CSV` is overridden.
-- Subject totals shown in the UI are recomputed from raw marks files so they always use the normalized `100`-point scheme.
-- The ML pipeline still uses `avg_marks` and `attendance_pct` from the processed dataset.
-
-## Verification
-
-The current codebase has been verified with:
-
-```bash
-python3 -m py_compile backend/flask/app.py backend/spark/pipeline.py backend/ml/train_model.py
-cd frontend && npm run build
-```
